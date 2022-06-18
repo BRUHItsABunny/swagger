@@ -55,7 +55,7 @@ func New(config ...Config) fiber.Handler {
 			c.Type("html")
 			return index.Execute(c, cfg)
 		case defaultDocURL:
-			doc, err := swag.ReadDoc()
+			doc, err := swag.ReadDoc(cfg.URL)
 			if err != nil {
 				return err
 			}
